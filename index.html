@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Preview</title>
+</head>
+<body>
+    <textarea id="markdown-input" rows="10" cols="80"></textarea>
+    <div id="preview"></div>
+
+    <script type="module">
+        import init, { parse_markdown } from './pkg/wasm_markdown_preview.js';
+
+        async function initialize() {
+            await init();
+
+            const inputTextArea = document.getElementById('markdown-input');
+            const previewArea = document.getElementById('preview');
+
+            inputTextArea.addEventListener('input', () => {
+                const markdownText = inputTextArea.value;
+                const htmlOutput = parse_markdown(markdownText);
+                previewArea.innerHTML = htmlOutput;
+            });
+        }
+
+        initialize();
+    </script>
+</body>
+</html>
