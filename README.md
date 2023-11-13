@@ -1,3 +1,8 @@
 # wasm-markdown-preview
 
-[使用 rust & wasm 实现在浏览器中解析 markdown](https://chat.openai.com/share/7e9ee5d8-b686-4c00-9f32-110d52d6e564)
+这个项目演示了如何使用 Rust 编写 WebAssembly 模块，并通过 JavaScript 调用该模块以实现 Markdown 的实时预览。在这个示例中，我们使用 Rust 的 pulldown-cmark 库来解析 Markdown 文本并将其转换为 HTML。
+
+本地运行
+```sh
+npx vite serve ./
+```
